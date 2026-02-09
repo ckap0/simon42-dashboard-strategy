@@ -511,10 +511,68 @@ class Simon42ViewRoomStrategy {
         cards: [
           {
             type: "heading",
-            heading: "Beleuchtung",
+            heading: "Beleuchtung v1",
             heading_style: "title",
             icon: "mdi:lightbulb"
           },
+  // - type: custom:bubble-card
+  //   card_type: button
+  //   sub_button:
+  //     main: []
+  //     bottom: []
+  //   entity: light.kinderzimmer_decke
+  //   select_attribute: effect_list
+  //   button_type: slider
+  //   relative_slide: true
+  //   read_only_slider: false
+  //   slider_live_update: false
+  //   tap_to_slide: false
+  //   light_transition: false
+  //   show_state: false
+  //   show_attribute: true
+  //   attribute: brightness
+  //   invert_slider_value: false
+  //   use_accent_color: false
+  //   allow_light_slider_to_0: false
+  //   hold_action:
+  //     action: more-info
+  //   button_action:
+  //     double_tap_action:
+  //       action: more-info
+  //   card_layout: large
+  //   force_icon: false
+
+          ...roomEntities.lights.map(entity => ({
+            type: "custom:bubble-card",
+            card_type: "button",
+            entity: entity,
+            select_attribute: "effect_list",
+            button_type: "slider",
+            relative_slide: true,
+            read_only_slider: false,
+            slider_live_update: false,
+            tap_to_slide: false,
+            light_transition: false,
+            show_state: false,
+            show_attribute: true,
+            attribute: "brightness",
+            invert_slider_value: false,
+            use_accent_color: false,
+            allow_light_slider_to_0: false,
+            // hold_action:
+            //   action: more-info
+            // button_action:
+            //   double_tap_action:
+            //     action: more-info
+            card_layout: "large",
+            force_icon: false,
+            name: stripAreaName(entity, area, hass),
+            // features: [{ type: "light-brightness" }],
+            // vertical: false,
+            // features_position: "inline",
+            // state_content: "last_changed"
+          }))
+          /* -- Simon style
           ...roomEntities.lights.map(entity => ({
             type: "tile",
             entity: entity,
@@ -524,6 +582,7 @@ class Simon42ViewRoomStrategy {
             features_position: "inline",
             state_content: "last_changed"
           }))
+            */
         ]
       });
     }

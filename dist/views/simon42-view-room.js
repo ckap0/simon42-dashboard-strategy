@@ -632,7 +632,7 @@ class Simon42ViewRoomStrategy {
         cards: [
           {
             type: "heading",
-            heading: "Medien V1.0",
+            heading: "Medien V1.0.1",
             heading_style: "title",
             icon: "mdi:speaker"
           },
@@ -648,12 +648,12 @@ class Simon42ViewRoomStrategy {
             show_attribute: false,
             show_last_updated: false,
             icon: "",
-            hide: [{ play_pause_button: "false",
-                      volume_button: "false",
-                      next_button: "false",
-                      previous_button: "false",
-                      power_button: "false"}],
-            main_buttons_position: bottom,
+            hide: [{ play_pause_button: false,
+                      volume_button: false,
+                      next_button: false,
+                      previous_button: false,
+                      power_button: false}],
+            main_buttons_position: "bottom",
             rows: 1.719,
             cover_background: true,
             button_action: [{ hold_action: [{ action: "more-info"}]}],

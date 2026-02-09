@@ -511,7 +511,7 @@ class Simon42ViewRoomStrategy {
         cards: [
           {
             type: "heading",
-            heading: "Beleuchtung v2",
+            heading: "Beleuchtung v2.1",
             heading_style: "title",
             icon: "mdi:lightbulb"
           },
@@ -564,6 +564,15 @@ class Simon42ViewRoomStrategy {
             card_layout: "large",
             force_icon: false,
             name: stripAreaName(entity, area, hass),
+            slider_fill_orientation: "left",
+            slider_value_position: "right",
+            light_slider_type: "brightness",
+            styles: `.bubble-main-icon-container {
+                      background: rgba(40,40,40,0.2) !important;
+                    }
+                    .bubble-button-card-container {
+                      background: rgba(0,0,0,0.4) !important;
+                    }`
             // features: [{ type: "light-brightness" }],
             // vertical: false,
             // features_position: "inline",

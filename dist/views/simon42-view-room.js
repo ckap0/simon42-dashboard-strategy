@@ -653,7 +653,7 @@ class Simon42ViewRoomStrategy {
                       next_button: false,
                       previous_button: false,
                       power_button: false}],
-            main_buttons_position: "bottom",
+            // main_buttons_position: "bottom",
             rows: 1.719,
             cover_background: true,
             button_action: [{ hold_action: [{ action: "more-info"}]}],

@@ -511,7 +511,7 @@ class Simon42ViewRoomStrategy {
         cards: [
           {
             type: "heading",
-            heading: "Beleuchtung v1",
+            heading: "Beleuchtung v2",
             heading_style: "title",
             icon: "mdi:lightbulb"
           },
@@ -559,11 +559,8 @@ class Simon42ViewRoomStrategy {
             invert_slider_value: false,
             use_accent_color: false,
             allow_light_slider_to_0: false,
-            // hold_action:
-            //   action: more-info
-            // button_action:
-            //   double_tap_action:
-            //     action: more-info
+            hold_action: [{ action: "more-info"}],
+            button_action: [{double_tap_action: [{action: "more-info"}]}],
             card_layout: "large",
             force_icon: false,
             name: stripAreaName(entity, area, hass),

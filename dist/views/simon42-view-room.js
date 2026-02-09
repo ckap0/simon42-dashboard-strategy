@@ -515,33 +515,6 @@ class Simon42ViewRoomStrategy {
             heading_style: "title",
             icon: "mdi:lightbulb"
           },
-  // - type: custom:bubble-card
-  //   card_type: button
-  //   sub_button:
-  //     main: []
-  //     bottom: []
-  //   entity: light.kinderzimmer_decke
-  //   select_attribute: effect_list
-  //   button_type: slider
-  //   relative_slide: true
-  //   read_only_slider: false
-  //   slider_live_update: false
-  //   tap_to_slide: false
-  //   light_transition: false
-  //   show_state: false
-  //   show_attribute: true
-  //   attribute: brightness
-  //   invert_slider_value: false
-  //   use_accent_color: false
-  //   allow_light_slider_to_0: false
-  //   hold_action:
-  //     action: more-info
-  //   button_action:
-  //     double_tap_action:
-  //       action: more-info
-  //   card_layout: large
-  //   force_icon: false
-
           ...roomEntities.lights.map(entity => ({
             type: "custom:bubble-card",
             card_type: "button",
@@ -573,22 +546,7 @@ class Simon42ViewRoomStrategy {
                     .bubble-button-card-container {
                       background: rgba(0,0,0,0.4) !important;
                     }`
-            // features: [{ type: "light-brightness" }],
-            // vertical: false,
-            // features_position: "inline",
-            // state_content: "last_changed"
           }))
-          /* -- Simon style
-          ...roomEntities.lights.map(entity => ({
-            type: "tile",
-            entity: entity,
-            name: stripAreaName(entity, area, hass),
-            features: [{ type: "light-brightness" }],
-            vertical: false,
-            features_position: "inline",
-            state_content: "last_changed"
-          }))
-            */
         ]
       });
     }
@@ -674,19 +632,49 @@ class Simon42ViewRoomStrategy {
         cards: [
           {
             type: "heading",
-            heading: "Medien",
+            heading: "Medien V1.0",
             heading_style: "title",
             icon: "mdi:speaker"
           },
           ...roomEntities.media_player.map(entity => ({
-            type: "tile",
+            type: "custom:bubble-card",
+            card_type: "media-player",
             entity: entity,
             name: stripAreaName(entity, area, hass),
-            vertical: false,
-            features: [{ type: "media-player-playback" }],
-            features_position: "inline",
-            state_content: ["media_title", "media_artist"]
+            force_icon: false,
+            show_state: false,
+            show_last_changed: false,
+            grid_options: [{columns: 12}],
+            show_attribute: false,
+            show_last_updated: false,
+            icon: "",
+            hide: [{ play_pause_button: "false",
+                      volume_button: "false",
+                      next_button: "false",
+                      previous_button: "false",
+                      power_button: "false"}],
+            main_buttons_position: bottom,
+            rows: 1.719,
+            cover_background: true,
+            button_action: [{ hold_action: [{ action: "more-info"}]}],
+            double_tap_action: [{action: "more-info" }],
+            styles: ""
+
+
+            // vertical: false,
+            // features: [{ type: "media-player-playback" }],
+            // features_position: "inline",
+            // state_content: ["media_title", "media_artist"]
           }))
+          // ...roomEntities.media_player.map(entity => ({
+          //   type: "tile",
+          //   entity: entity,
+          //   name: stripAreaName(entity, area, hass),
+          //   vertical: false,
+          //   features: [{ type: "media-player-playback" }],
+          //   features_position: "inline",
+          //   state_content: ["media_title", "media_artist"]
+          // }))
         ]
       });
     }
